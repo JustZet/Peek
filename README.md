@@ -1,55 +1,86 @@
 # Peek
 
-Extensie Chrome: pune o miniatură vie a tab-ului într-o fereastră mică, mereu
-deasupra celorlalte, inclusiv peste alte tab-uri și ferestre Chrome. Browserul
-rămâne deschis. Un clic pe miniatură te duce înapoi la tab-ul ei.
+A Chrome extension that keeps a live thumbnail of a tab in a small window that stays
+on top of everything else — other tabs, other windows, other apps. Your browser stays
+open as it is. Click the thumbnail to jump straight back to its tab.
 
-## Instalare
+Handy for keeping an eye on a video, a build, a live dashboard, a stream or a chat
+while you work somewhere else.
 
-1. Deschide `chrome://extensions` (sau `brave://extensions`).
-2. Pornește **Developer mode** (dreapta sus).
-3. **Load unpacked** → alege folderul ăsta.
-4. Opțional: fixează iconița pe bară (piesa de puzzle → piuneza de lângă Peek).
+## Install
 
-După orice modificare în cod: butonul de reîncărcare de pe cardul extensiei, apoi
-reîncarcă și paginile deschise.
+### From source
 
-## Folosire
+1. Download or clone this repository.
+2. Open `chrome://extensions` (or `brave://extensions`, `edge://extensions`).
+3. Turn on **Developer mode** (top right).
+4. Click **Load unpacked** and select this folder.
+5. Optional: pin the icon to the toolbar (puzzle piece → pin next to Peek).
 
-Trei feluri de a porni, toate comută (a doua oară închid miniatura):
+After changing the code, press the reload button on the extension's card, then reload
+the pages you are testing on.
 
-- **Iconița** de pe bară.
-- **Alt+Shift+P**. Se schimbă din `chrome://extensions/shortcuts`.
-- **Clic dreapta în pagină → Peek at this tab**. Meniul tab-ului din bara de sus
-  nu e deschis extensiilor, deci meniul e pe pagină.
+## Usage
 
-Iconița de pe bară arată starea tab-ului: **gri, cu miniatura goală** când nu e
-urmărit, **colorată, cu miniatura plină** cât timp e în miniatură.
+Three ways to start. Each one toggles — using it again closes the thumbnail:
 
-**Clic pe miniatură** → înapoi la tab. Dacă ai minimizat tu Chrome între timp,
-fereastra revine în starea în care era.
+- **The toolbar icon.**
+- **Alt+Shift+P.** Change it in `chrome://extensions/shortcuts`.
+- **Right-click the page → Peek at this tab.** The tab strip's own right-click menu is
+  closed to extensions, so the entry lives on the page.
 
-## Limite
+The toolbar icon shows the tab's state: **grey, with an empty thumbnail** when the tab
+isn't being peeked at, **in colour, with the thumbnail filled in** while it is.
 
-- Se vede doar conținutul paginii, fără bara de adrese și tab-uri.
-- Miniatura se privește, nu se folosește: clicurile din ea nu ajung în pagină.
-- Nu merge pe `chrome://…`, pe Chrome Web Store și pe paginile unde browserul nu
-  lasă extensiile. Iconița primește atunci un „!” roșu, iar motivul apare la
-  trecerea mouse-ului peste ea.
-- O singură miniatură odată. Un video pus de un site în picture-in-picture o
-  înlocuiește.
-- Extensia nu cere acces la site-uri: rulează doar pe tab-ul pe care o pornești
-  tu, și doar atunci.
+**Click the thumbnail** to go back to the tab. If you minimized the browser in the
+meantime, its window comes back the way it was.
 
-## Cum funcționează
+## Limitations
 
-| Fișier | Ce face |
+- Only the page's content is shown — no address bar or tabs. Extensions have no access
+  to the browser's own interface.
+- The thumbnail is for watching, not for using: clicks inside it take you back to the
+  tab rather than reaching the page.
+- It can't run on `chrome://` pages, the Chrome Web Store, or other pages where the
+  browser doesn't allow extensions. The icon then shows a red “!” for a few seconds,
+  and hovering over it tells you why.
+- One thumbnail at a time. A video that a site puts into picture-in-picture replaces it.
+- While a tab is being captured, the browser shows its sharing indicator on that tab.
+
+## Privacy
+
+Peek collects no data. It has no account, no analytics and no servers, and it runs only
+on the tab where you start it, only when you start it. The tab's image is shown locally
+in the thumbnail and is never recorded, stored or sent anywhere.
+
+Full privacy policy: <https://justzet.github.io/Peek/privacy.html>
+
+## How it works
+
+| File | What it does |
 |---|---|
-| `manifest.json` | permisiunile, iconița, scurtătura |
-| `background.js` | pornește din iconiță, scurtătură și meniu; dă id-ul fluxului video al tab-ului (`tabCapture`); aduce tab-ul în față; schimbă iconița după stare |
-| `peek.js` | definește `__peekToggle`: fereastra *Document Picture-in-Picture*, imaginea tab-ului, clicul pe miniatură |
-| `run.js` | cheamă `__peekToggle` după injectarea din iconiță, scurtătură și meniu |
+| `manifest.json` | permissions, icon, keyboard shortcut |
+| `background.js` | starts from the icon, the shortcut and the context menu; hands the tab its own video stream id (`tabCapture`); brings the tab back to the front; swaps the icon to match the state |
+| `peek.js` | defines `__peekToggle`: the *Document Picture-in-Picture* window, the tab's live image, the click on the thumbnail |
+| `run.js` | calls `__peekToggle` after injection from the icon, the shortcut or the menu |
+| `docs/privacy.html` | the privacy policy, served by GitHub Pages |
 
-Fereastra picture-in-picture se cere prima, înaintea oricărei așteptări. Browserul
-o deschide doar cât clicul tău e încă proaspăt, iar cererea fluxului video trece
-prin service worker și durează.
+The picture-in-picture window is requested first, before anything is awaited. The
+browser only opens it while your click is still fresh, and fetching the video stream
+goes through the service worker and takes a moment.
+
+## Permissions
+
+| Permission | Why |
+|---|---|
+| `activeTab` | Access to the single tab where you start Peek, only at that moment. |
+| `tabCapture` | The live video of that tab, shown in the thumbnail. Video only, never audio. |
+| `scripting` | Runs Peek's own bundled script in that tab to open the thumbnail window. |
+| `contextMenus` | Adds “Peek at this tab” to the page's right-click menu. |
+
+Peek does not ask for access to all websites, your history, bookmarks or cookies, and it
+never loads code from the internet.
+
+## Feedback
+
+Found a bug or have an idea? [Open an issue](https://github.com/JustZet/Peek/issues).
