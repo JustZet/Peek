@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Peek — Privacy Policy</title>
+  <meta name="description" content="Privacy policy for Peek, the Chrome extension that keeps a live, always-on-top thumbnail of a tab.">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1f2330;
+      --muted: #5b6275;
+      --accent: #7c3aed;
+      --line: #e6e8ee;
+      --card: #f7f7fb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14151a;
+        --text: #e8e9ee;
+        --muted: #a2a7b6;
+        --accent: #a78bfa;
+        --line: #2a2c35;
+        --card: #1c1d24;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    main { max-width: 720px; margin: 0 auto; padding: 48px 20px 72px; }
+    header { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
+    header svg { width: 44px; height: 44px; flex: none; }
+    h1 { font-size: 28px; line-height: 1.2; margin: 0; }
+    .updated { color: var(--muted); margin: 0 0 32px; }
+    h2 { font-size: 19px; margin: 36px 0 8px; }
+    p, li { color: var(--text); }
+    ul { padding-left: 22px; }
+    li { margin: 6px 0; }
+    .summary {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 16px 18px;
+    }
+    .summary p { margin: 0; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 15px; }
+    th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+    th { color: var(--muted); font-weight: 600; }
+    code { font: 14px ui-monospace, SFMono-Regular, Consolas, monospace; }
+    a { color: var(--accent); }
+    footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <rect x="1.5" y="3" width="15" height="12" rx="2.2" fill="none" stroke="#a78bfa" stroke-width="1.9"/>
+      <rect x="10" y="10.5" width="12.5" height="9.5" rx="2" fill="#f59e0b"/>
+      <path d="M12.6 15.25 C14.1 13.4 18.4 13.4 19.9 15.25 C18.4 17.1 14.1 17.1 12.6 15.25 Z" fill="#fff"/>
+      <circle cx="16.25" cy="15.25" r="1.2" fill="#6d28d9"/>
+    </svg>
+    <h1>Peek — Privacy Policy</h1>
+  </header>
+  <p class="updated">Last updated: September 28, 2026</p>
+
+  <div class="summary">
+    <p><strong>In short:</strong> Peek does not collect, store, sell or share any personal data.
+    It has no account, no analytics, no tracking and no servers. Everything it does
+    happens inside your browser, on the tab you choose, while you use it.</p>
+  </div>
+
+  <h2>What Peek does</h2>
+  <p>Peek is a browser extension that shows a live, always-on-top thumbnail of a tab in a
+  small picture-in-picture window, so you can keep watching that tab while you work
+  elsewhere. Clicking the thumbnail brings you back to the tab.</p>
+
+  <h2>Data we collect</h2>
+  <p>None. Peek does not collect personally identifiable information, browsing history,
+  page contents, keystrokes, location, health, financial or any other user data.
+  Peek does not use cookies and does not contain analytics or advertising code.</p>
+
+  <h2>The tab's image</h2>
+  <p>To show the thumbnail, Peek captures the <strong>video</strong> of the tab you started
+  it on. This image is:</p>
+  <ul>
+    <li>captured only after you start Peek on that tab — by clicking its toolbar icon,
+      pressing its keyboard shortcut, or choosing “Peek at this tab” from the page's
+      right-click menu;</li>
+    <li>displayed only locally, inside the thumbnail window on your own screen;</li>
+    <li>never recorded, saved, uploaded or transmitted anywhere;</li>
+    <li>stopped as soon as the thumbnail is closed or clicked.</li>
+  </ul>
+  <p>Audio is never captured.</p>
+
+  <h2>Permissions and why they are needed</h2>
+  <table>
+    <thead>
+      <tr><th>Permission</th><th>Why</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>activeTab</code></td><td>Access to the single tab where you start Peek, only at that moment.</td></tr>
+      <tr><td><code>tabCapture</code></td><td>The live video of that tab, shown in the thumbnail.</td></tr>
+      <tr><td><code>scripting</code></td><td>Runs Peek's own bundled script in that tab to open the thumbnail window. It does not read or change the page.</td></tr>
+      <tr><td><code>contextMenus</code></td><td>Adds “Peek at this tab” to the page's right-click menu.</td></tr>
+    </tbody>
+  </table>
+  <p>Peek does not request access to your browsing history, bookmarks, downloads,
+  cookies or to all websites. It does not load or run any code from the internet:
+  all of its code is included in the extension package.</p>
+
+  <h2>Sharing with third parties</h2>
+  <p>Peek has no data to share, and shares nothing with anyone. It does not sell data,
+  use it for purposes unrelated to its single function, or use it to determine
+  creditworthiness or for lending.</p>
+
+  <h2>Children</h2>
+  <p>Peek collects no data from anyone, including children.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>If Peek's behaviour ever changes in a way that affects your privacy, this page will be
+  updated before the new version is published, and the date at the top will change.</p>
+
+  <h2>Contact</h2>
+  <p>Questions or concerns: open an issue at
+  <a href="https://github.com/JustZet/Peek/issues">github.com/JustZet/Peek/issues</a>.</p>
+
+  <footer>Peek is an independent project and is not affiliated with Google or the Chrome Web Store.</footer>
+</main>
+</body>
+</html>
